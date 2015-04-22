@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF3E83FB1AE49ADF00CA63AE /* YBScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3E83FA1AE49ADF00CA63AE /* YBScanViewController.m */; };
 		CF458C8A1AE128C5009C8149 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF458C891AE128C5009C8149 /* main.m */; };
 		CF458C8D1AE128C5009C8149 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF458C8C1AE128C5009C8149 /* AppDelegate.m */; };
 		CF458C901AE128C5009C8149 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF458C8F1AE128C5009C8149 /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF3E83F91AE49ADF00CA63AE /* YBScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBScanViewController.h; sourceTree = "<group>"; };
+		CF3E83FA1AE49ADF00CA63AE /* YBScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBScanViewController.m; sourceTree = "<group>"; };
 		CF458C841AE128C5009C8149 /* AVFoundationTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVFoundationTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF458C881AE128C5009C8149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF458C891AE128C5009C8149 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				CF458C941AE128C5009C8149 /* Images.xcassets */,
 				CF458C961AE128C5009C8149 /* LaunchScreen.xib */,
 				CF458C871AE128C5009C8149 /* Supporting Files */,
+				CF3E83F91AE49ADF00CA63AE /* YBScanViewController.h */,
+				CF3E83FA1AE49ADF00CA63AE /* YBScanViewController.m */,
 			);
 			path = AVFoundationTT;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3E83FB1AE49ADF00CA63AE /* YBScanViewController.m in Sources */,
 				CF458C901AE128C5009C8149 /* ViewController.m in Sources */,
 				CF458C8D1AE128C5009C8149 /* AppDelegate.m in Sources */,
 				CF458C8A1AE128C5009C8149 /* main.m in Sources */,
@@ -299,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -336,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -347,9 +353,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = AVFoundationTT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -357,9 +365,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = AVFoundationTT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -416,6 +426,7 @@
 				CF458CA91AE128C5009C8149 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF458CAA1AE128C5009C8149 /* Build configuration list for PBXNativeTarget "AVFoundationTTTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +435,7 @@
 				CF458CAC1AE128C5009C8149 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
