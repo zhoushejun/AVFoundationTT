@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--条形码/二维码扫描-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                             <constraint firstItem="K9m-iO-R3Z" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="rMo-vj-Bmx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zum-MX-naU"/>
+                    <navigationItem key="navigationItem" title="条形码/二维码扫描" id="zum-MX-naU"/>
                     <connections>
                         <outlet property="labScanStringValue" destination="LI8-ZN-SgB" id="hb3-Qe-QaH"/>
                     </connections>

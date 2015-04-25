@@ -24,7 +24,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    [self startReading];
+    if (AVAuthorizationStatusAuthorized != [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无法使用相机"
+                                                            message:@"请在iPhone的”设置-隐私-相机“中允许访问相机"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }else {
+        [self startReading];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
