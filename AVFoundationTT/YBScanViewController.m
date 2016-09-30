@@ -24,13 +24,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    if (AVAuthorizationStatusAuthorized != [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"无法使用相机"
-                                                            message:@"请在iPhone的”设置-隐私-相机“中允许访问相机"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"确定"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+
+    if (authStatus == AVAuthorizationStatusRestricted ||
+        authStatus ==AVAuthorizationStatusDenied) {
+        UIAlertAction *cancleAlertAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"点击取消");
+        }];
+        UIAlertAction *okAlertAction = [UIAlertAction actionWithTitle:@"去设置授权" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"点击去设置授权");
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url];
+            }
+        }];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示"
+                                                                                 message:@"使用相机需要得到您的授权"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:cancleAlertAction];
+        [alertController addAction:okAlertAction];
+        UIWindow *win = [UIApplication sharedApplication].keyWindow;
+        [win.rootViewController presentViewController:alertController animated:YES completion:nil];
+
         return;
     }else {
         [self startReading];
@@ -40,6 +55,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    NSLog(@"dealloc");
 }
 
 /*
@@ -62,7 +81,8 @@
     AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     if (!input) {
-        NSLog(@"%@", [error localizedDescription]); return NO;
+        NSLog(@"%@", [error localizedDescription]);
+        return NO;
     }
     self.captureSession = [[AVCaptureSession alloc] init];
     [self.captureSession addInput:input];
